@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSM Radio Interface</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #b2ebf2, #ffe0b2); 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presentation-container {
+            width: 90%; 
+            max-width: 800px; 
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .presentation {
+            width: 100%; 
+            height: auto; 
+            background-color: #ffffff; 
+            border: 1px solid #ffccbc; 
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px; 
+            position: relative;
+            padding-bottom: 60px; 
+        }
+
+        h1, h2, h3 {
+            color: #00796b; 
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem; 
+            color: #424242; 
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #ffe0b2; 
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #ff7043; 
+        }
+
+        .slide {
+            display: none;
+            text-align: left;
+            height: 400px; 
+            overflow: auto; 
+        }
+
+        .active {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 20px;
+            width: calc(100% - 60px); 
+            padding: 0 15px; 
+        }
+
+        .nav-button {
+            background-color: #009688; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background-color: #00796b; 
+        }
+
+        /* Animations */
+        .slide {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+       
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem; 
+            }
+            h2, h3 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.9rem; 
+            }
+            .nav-button {
+                padding: 8px 15px; 
+                font-size: 0.9rem; 
+            }
+            .slide {
+                height: 300px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .presentation {
+                padding: 15px; 
+            }
+            h1 {
+                font-size: 1.2rem; 
+            }
+            h2, h3 {
+                font-size: 1.1rem; 
+            }
+            p {
+                font-size: 0.8rem; 
+            }
+            .nav-buttons {
+                flex-direction: column; 
+                align-items: center;
+            }
+            .nav-button {
+                width: 100%; 
+                margin: 5px 0; 
+            }
+            .slide {
+                height: 250px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="presentation">
+            <!-- Slide 1 -->
+            <div class="slide active" id="slide1">
+                <h1>GSM Radio Interface</h1>
+                <p>Understanding the key concepts of GSM technology</p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" id="slide2">
+                <h2>What is GSM?</h2>
+                <p>Global system for mobile Communication (GSM) is a standard developed to describe protocols for Second generation (2G) digital cellular networks.</p>
+                <p>It was a pivotal step in the evaluation of mobile technology, making the transition from analog to digital communication.</p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" id="slide3">
+                <h2>GSM Radio Interface</h2>
+                <p>The GSM radio interface, also called the Um interface, is the wireless connection that allows your mobile phone (Mobile Station or MS) to communicate with the nearest cell tower (Base Transceiver Station or BTS).</p>
+                <p>This connection is what makes mobile communication possible in a GSM network.</p>
+                <div style="text-align: center;">
+                    <img src="Radio.jpg" alt="Image" height="180" width="500">
+                    <p style="text-align: center;">GSM Interfaces</p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide" id="slide4">
+                <h2>Key Points:</h2>
+                <h3>Sharing the Airwaves (TDMA):</h3>
+                <p>The Um interface utilizes TDMA technology, which allows multiple users to share a single radio frequency channel by dividing it into different time slots.</p>
+                <p>This enables efficient use of the available spectrum and supports multiple simultaneous calls.</p>
+                <h3>Different Paths for Sending and Receiving (FDD):</h3>
+                <p>When you talk and listen during a call, you need two separate paths so your voice and the other person's voice don't mix up.</p>
+                <p>FDD (Frequency Division Duplex) does this by using one frequency for sending (uplink) and a different one for receiving (downlink). This keeps the communication clear.</p>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide" id="slide5">
+                <h3>Radio Environment Adaptation:</h3>
+                <p>The Um interface is designed to handle the challenging characteristics of the radio environment, such as signal fading, interference, and mobility.</p>
+                <p>It includes mechanisms for error correction, power control, and handover to maintain a reliable connection as users move through the network.</p>
+                <h3>Managing the Connection:</h3>
+                <p>The Radio interface works at two levels:</p>
+                <p>i) the physical layer</p>
+                <p>ii) the data link layer</p>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide" id="slide6">
+                <h3>i) the physical layer</h3>
+                <p>which deals with the actual sending and receiving of radio signals.</p>
+                <h3>ii) the data link layer</h3>
+                <p>which ensures that the data being sent is correct and organized. It also helps manage the network's resources, like deciding when your phone should switch to a different cell tower as you move.</p>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="slide" id="slide7">
+                <h2>Conclusion</h2>
+                <p>The GSM radio interface plays a crucial role in the operation of GSM networks by facilitating communication between mobile devices and base stations. Using well-defined frequency bands (900 MHz, 1800 MHz, 1900 MHz), it handles both the uplink (mobile to base station) and downlink (base station to mobile) communication. This interface enables voice and data transmission, ensuring efficient connectivity across vast geographical areas. By adhering to strict protocol layers, the GSM radio interface ensures secure, error-free transmission while supporting the mobility and seamless handover of users as they traverse the network.</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button id="prev" class="nav-button" disabled>Previous</button>
+                <button id="next" class="nav-button">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle slide navigation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        nextButton.addEventListener('click', function() {
+            goToSlide(currentSlide + 1);
+        });
+
+        prevButton.addEventListener('click', function() {
+            goToSlide(currentSlide - 1);
+        });
+
+        function goToSlide(slideNumber) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = slideNumber;
+            slides[currentSlide].classList.add('active');
+            updateButtons();
+        }
+
+        function updateButtons() {
+            // Disable Previous button on the first slide
+            if (currentSlide === 0) {
+                prevButton.disabled = true;
+            } else {
+                prevButton.disabled = false;
+            }
+
+            // Disable Next button on the last slide
+            if (currentSlide === totalSlides - 1) {
+                nextButton.disabled = true;
+            } else {
+                nextButton.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
